@@ -16,7 +16,7 @@
 #********************************************************************************
 
 # uncomment the next line to debug this script
-#set -x
+set -x
 
 if [ -z "$IC_COMMAND" ]; then
     if [ "$USE_ICE_CLI" = "1" ]; then
@@ -275,7 +275,7 @@ ice_build_image() {
 ice_retry(){
     local RC=0
     local retries=0
-    local iceparms="$*"
+    local iceparms="$@"
     local COMMAND=""
     debugme echo "Command: ${IC_COMMAND} ${iceparms}"
     while [ $retries -lt 5 ]; do
